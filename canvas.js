@@ -162,10 +162,10 @@ function collision(ballarr){
                 var v_rel = [ballarr[i].vx - ballarr[j].vx, ballarr[i].vy - ballarr[j].vy];
                 dist = Math.sqrt(dist);
                 // Remove collision
-                ballarr[i].x += d_rel[0] * (1 - dist / 20) / 2;
-                ballarr[i].y += d_rel[1] * (1 - dist / 20) / 2;
-                ballarr[j].x -= d_rel[0] * (1 - dist / 20) / 2;
-                ballarr[j].y -= d_rel[1] * (1 - dist / 20) / 2;
+                ballarr[i].x += d_rel[0] * (1 - dist / (2 * radius)) / 2;
+                ballarr[i].y += d_rel[1] * (1 - dist / (2 * radius)) / 2;
+                ballarr[j].x -= d_rel[0] * (1 - dist / (2 * radius)) / 2;
+                ballarr[j].y -= d_rel[1] * (1 - dist / (2 * radius)) / 2;
                 // Momentum Vector of the center of Mass
                 var v_cm = [(ballarr[i].vx + ballarr[j].vx) / 2, (ballarr[i].vy + ballarr[j].vy) / 2]
                 var dd_rel = d_rel[0] ** 2 + d_rel[1] ** 2;
