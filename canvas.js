@@ -149,14 +149,14 @@ function collision(ballarr){
     for (var i = 0; i < ballarr.length; i++) {
         // Check if collided with mouseball
         var dist = (ballarr[i].x - mouseball.x) ** 2 + (ballarr[i].y - mouseball.y) ** 2
-        if (dist < 400) {
+        if (dist < 4*radius**2) {
             console.log("you have crashed!!");
             alive = false;
             audio.pause();
         }
         for (var j = i + 1; j < ballarr.length; j++) {
             var dist = (ballarr[i].x - ballarr[j].x) ** 2 + (ballarr[i].y - ballarr[j].y) ** 2
-            if (dist < 400) {
+            if (dist < 4*radius**2) {
                 hitsound.cloneNode(true).play();
                 var d_rel = [ballarr[i].x - ballarr[j].x, ballarr[i].y - ballarr[j].y];
                 var v_rel = [ballarr[i].vx - ballarr[j].vx, ballarr[i].vy - ballarr[j].vy];
