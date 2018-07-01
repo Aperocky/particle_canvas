@@ -8,6 +8,7 @@ var radius = 10;
 const startnum = 3;
 const speed = 5;
 var hardmode = false;
+var gameid = 1;
 
 canvas.width = canvaswidth;
 canvas.height = canvasheight;
@@ -171,10 +172,10 @@ function collision(ballarr){
                 var dd_rel = d_rel[0] ** 2 + d_rel[1] ** 2;
                 var vd_rel = v_rel[0] * d_rel[0] + v_rel[1] * d_rel[1];
                 var v_rel = [2 * d_rel[0] * vd_rel / dd_rel - v_rel[0], 2 * d_rel[1] * vd_rel / dd_rel - v_rel[1]];
-                ballarr[i].vx = v_cm[0] + v_rel[0] / 2;
-                ballarr[i].vy = v_cm[1] + v_rel[1] / 2;
-                ballarr[j].vx = v_cm[0] - v_rel[0] / 2;
-                ballarr[j].vy = v_cm[1] - v_rel[1] / 2;
+                ballarr[i].vx = v_cm[0] - v_rel[0] / 2;
+                ballarr[i].vy = v_cm[1] - v_rel[1] / 2;
+                ballarr[j].vx = v_cm[0] + v_rel[0] / 2;
+                ballarr[j].vy = v_cm[1] + v_rel[1] / 2;
             }
         }
     }
@@ -206,8 +207,12 @@ function animate(){
     collision(ballarr);
 }
 
-function addBall(){
+function addBall(gamestamp){
     if(!alive){
+        return false;
+    }
+    console.log(gamestamp + ": " + gameid);
+    if(gamestamp !== gameid){
         return false;
     }
     let ball = new Circle();
@@ -219,17 +224,23 @@ function addBall(){
         readying = [];
     }
     setTimeout(merge, 2000);
-    setTimeout(addBall, ballnum * 2000);
+    setTimeout(function(){
+        addBall(gamestamp);
+    }, ballnum * 2000);
 }
 
 function startGame(){
+    gameid += 1;
+    let gamestamp = gameid;
     window.ballnum = startnum;
     alive = true;
     ballarr = []
     initgame();
     audio.play();
     setTimeout(animate, 2000)
-    setTimeout(addBall, ballnum * 2000);
+    setTimeout(function () {
+        addBall(gamestamp);
+    }, ballnum * 2000);
 }
 
 function endGame() {
@@ -268,6 +279,7 @@ function endGame() {
 
 replay.click(function(){
     hardmode = false;
+    radius = 10;
     startGame();
     memo.hide();
     replay.hide();
