@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A simple game of particles. Simple but thrilling">
+    <meta name="author" content="Rocky Li">
+
+    <title>Particle Game</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../scrolling-nav.css" rel="stylesheet">
+    <link rel="shortcut icon" href="image/r.ico" type="image/x-icon">
+    <meta property='og:image' content='image/arrow.png' />
+    <style type="text/css">
+        canvas {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            background: rgba(150,160,150);
+            background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+        }
+        body {
+            background: #ddd;
+        }
+        .gametext {
+            position: absolute;
+            text-align: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        button {
+            position: absolute;
+        }
+        #desc {
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container" style="margin-top:20px;">
+    <div class="row" style="min-height:900px;">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="text-center"> Particle Game </h1>
+            <canvas id="game"></canvas>
+            <p class="lead gametext" id="result" style="display:none;"></p>
+            <p class="lead gametext" id="memo">Just avoid blue balls.</p>
+            <button class='btn text-center' id="play"> Play </button>
+            <button class='btn text-center' id="again" style="display:none;"> Replay </button>
+            <button class='btn text-center' id="hard" style="display:none;"> Hard Mode? </button>
+            <p id="desc"> This was one of my favorite games when I was young, shoutout to matteo@ragdollsoft for developing the incredibly fun flash game. Now that I'm good at canvas, I recreated this gem in javascript - it's still incredibly fun!
+            </p>
+        </div>
+    </div>
+</div>
+<script src="canvas.js"></script>
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Rocky Li</p>
+    </div>
+    <!-- /.container -->
+</footer>
+</body>
+
+</html>
