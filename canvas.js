@@ -242,6 +242,7 @@ function addBall(gamestamp){
 }
 
 function startGame(){
+    audio.currentTime = 0;
     gameid += 1;
     let gamestamp = gameid;
     window.ballnum = startnum;
