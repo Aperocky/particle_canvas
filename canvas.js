@@ -146,6 +146,18 @@ canvas.addEventListener('mousemove',
     }
 )
 
+canvas.addEventListener('touchmove', function(event){
+    event.preventDefault()
+    var offset = $(this).offset();
+    mouseball.x = event.pageX - offset.left;
+    mouseball.y = event.pageY - offset.top;
+    // console.log(mouseball);
+    mouseball.x = (mouseball.x < radius) ? radius : mouseball.x;
+    mouseball.x = (mouseball.x > canvaswidth - radius) ? canvaswidth - radius : mouseball.x;
+    mouseball.y = (mouseball.y < radius) ? radius : mouseball.y;
+    mouseball.y = (mouseball.y > canvasheight - radius) ? canvasheight - radius : mouseball.y;
+})
+
 function collision(ballarr){
     for (var i = 0; i < ballarr.length; i++) {
         // Check if collided with mouseball
