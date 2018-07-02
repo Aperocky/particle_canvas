@@ -1,6 +1,24 @@
 var canvas = $("#game")[0];
 console.log(canvas);
 
+const description = [
+    "Easy Peasy",
+    "Still Quite Easy",
+    "Fun Begins",
+    "Sweaty Palms",
+    "In Traffic",
+    "Threading Needles",
+    "Blitzing Arm",
+    "STILL ALIVE? HOW??",
+    "Godlike Reflexes",
+    "Ninja",
+    "Greatest of All Time",
+    "Greatest of All Time",
+    "Greatest of All Time",
+    "Greatest of All Time",
+    "Greatest of All Time",
+];
+
 // Initialize Game.
 const canvaswidth = 400;
 const canvasheight = 600;
@@ -211,6 +229,8 @@ function animate(){
         c.textAlign = "center";
         c.font = "30px sans-serif";
         c.fillText(ballnum + " Balls", canvaswidth/2, canvasheight/2);
+        c.font = "20px sans-serif";
+        c.fillText(description[ballnum - 4], canvaswidth / 2, canvasheight / 2 + 30);
         ball = readying[i];
         ball.draw(c);
     }
