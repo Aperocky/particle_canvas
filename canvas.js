@@ -279,6 +279,16 @@ function startGame(){
 function endGame() {
     endtime = new Date();
     elapsed = endtime - window.start;
+    $.ajax({
+        url: 'log.php',
+        type: 'post',
+        data: {
+            "score" : elapsed,
+        },
+        success: function(){
+            console.log("Your score has been recorded");
+        }
+    })
     handball = new Circle();
     handball.x = mouseball.x;
     handball.y = mouseball.y;
