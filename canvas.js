@@ -262,6 +262,9 @@ function addBall(gamestamp){
 }
 
 function startGame(){
+    $("#game").css({
+        cursor: "none",
+    })
     audio.currentTime = 0;
     gameid += 1;
     let gamestamp = gameid;
@@ -277,6 +280,9 @@ function startGame(){
 }
 
 function endGame() {
+    $("#game").css({
+        cursor: "auto",
+    })
     endtime = new Date();
     elapsed = endtime - window.start;
     $.ajax({
