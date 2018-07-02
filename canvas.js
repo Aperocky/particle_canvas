@@ -284,6 +284,7 @@ function endGame() {
         type: 'post',
         data: {
             "score" : elapsed,
+            "hardmode" : hardmode,
         },
         success: function(){
             console.log("Your score has been recorded");
